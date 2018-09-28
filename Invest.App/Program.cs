@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Invest
+namespace Invest.App
 {
     class Program
     {
