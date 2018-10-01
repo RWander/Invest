@@ -5,6 +5,8 @@ namespace Invest.Core.Domain
 {
     public sealed class Transaction
     {
+        public int Id { get; set; }
+
         public string What { get; set; }
 
         public bool IsCompleted => Purchases.Sum(p => p.Amount) - Sales.Sum(s => s.Amount) == 0;

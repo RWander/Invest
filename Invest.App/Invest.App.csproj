@@ -5,15 +5,26 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\bin\Debug</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\bin\Release</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Colorful.Console" Version="1.2.9" />
     <PackageReference Include="ConsoleTables" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Invest.Core\Invest.Core.csproj" />
     <ProjectReference Include="..\Invest.Common\Invest.Common.csproj" />
+    <ProjectReference Include="..\Lib\NCommand.Console\NCommand.Console.csproj" />
+    <ProjectReference Include="..\Lib\NCommand\NCommand.csproj" />
   </ItemGroup>
 
 </Project>
