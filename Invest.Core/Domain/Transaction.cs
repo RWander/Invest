@@ -17,7 +17,7 @@ namespace Invest.Core.Domain
         public ushort Tax { get; set; }
         public ushort NetProfit { get; set; } // = Profit - Tax
 
-        public Transaction()
+        public Transaction()                                                                                                                                      
         {
             Purchases = new List<TransactionItem>();
             Sales = new List<TransactionItem>();
