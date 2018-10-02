@@ -11,14 +11,17 @@ namespace Invest.App.Command
 {
     public class OpenTransactionsCommand
     {
-        private readonly IServiceProvider _provider = Program.Provider;
+        private readonly IPackageService _packageSrvc;
+
+        public OpenTransactionsCommand()
+        {
+            _packageSrvc = Program.Provider.GetService<IPackageService>();
+        }
 
         [Command]
         public IList<string> GetOpenTransaction()
         {
-            var packageSrvc = _provider.GetService<PackageService>();
-
-            return packageSrvc.GetOpenTransactions()
+            return _packageSrvc.GetOpenTransactions()
                 .Select(t => t.Amount.ToString())
                 .ToList();
         }

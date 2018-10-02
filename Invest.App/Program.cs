@@ -1,8 +1,8 @@
 ﻿using System;
-using Invest.Core.Service;
+
 using Microsoft.Extensions.DependencyInjection;
+
 using Tectil.NCommand;
-using Tectil.NCommand.Contract;
 
 namespace Invest.App
 {
@@ -13,7 +13,6 @@ namespace Invest.App
         static Program()
         {
             var services = new ServiceCollection();
-            services.AddSingleton<PackageService, PackageService>();
 
             // Init modules
             var core = Core.Module.Instance;

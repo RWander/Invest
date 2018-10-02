@@ -8,7 +8,7 @@ using Invest.Core.Domain;
 
 namespace Invest.Core.Repository
 {
-    internal interface ITransactionRepository
+    public interface ITransactionRepository
     {
         IReadOnlyCollection<TransactionItem> GetOpenTransactions();
     }

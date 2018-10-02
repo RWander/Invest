@@ -4,6 +4,7 @@ using Invest.Common.Data;
 using Invest.Common.Module;
 using Invest.Core.Data;
 using Invest.Core.Repository;
+using Invest.Core.Service;
 
 namespace Invest.Core
 {
@@ -13,6 +14,7 @@ namespace Invest.Core
         {
             serviceCollection.AddSingleton<IConnectionFactory, ConnectionFactory>();
             serviceCollection.AddSingleton<ITransactionRepository, TransactionRepository>();
+            serviceCollection.AddSingleton<IPackageService, PackageService>();
         }
     }
 }

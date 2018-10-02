@@ -1,21 +1,22 @@
 ﻿using System.Collections.Generic;
 
-using Microsoft.Extensions.DependencyInjection;
-
 using Invest.Core.Domain;
 using Invest.Core.Repository;
 
 namespace Invest.Core.Service
 {
-    public sealed class PackageService
+    public interface IPackageService
+    {
+        IReadOnlyCollection<TransactionItem> GetOpenTransactions();
+    }
+
+    internal sealed class PackageService : IPackageService
     {
         private readonly ITransactionRepository _transactionRepo;
 
-        public PackageService()
+        public PackageService(ITransactionRepository transactionRepo)
         {
-            var provider = Module.Instance.Provider;
-
-            _transactionRepo = provider.GetService<ITransactionRepository>();
+            _transactionRepo = transactionRepo;
         }
 
         public IReadOnlyCollection<TransactionItem> GetOpenTransactions()
