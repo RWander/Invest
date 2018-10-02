@@ -1,16 +1,19 @@
 ﻿using System;
-
+using Invest.Core.Service;
 using Microsoft.Extensions.DependencyInjection;
+using Tectil.NCommand;
+using Tectil.NCommand.Contract;
 
 namespace Invest.App
 {
     public static class Program
     {
-        private static readonly IServiceProvider Provider;
+        internal static readonly IServiceProvider Provider;
 
         static Program()
         {
             var services = new ServiceCollection();
+            services.AddSingleton<PackageService, PackageService>();
 
             // Init modules
             var core = Core.Module.Instance;
@@ -27,7 +30,13 @@ namespace Invest.App
 
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //Console.WriteLine("Hello World!");
+
+            var commands = new NCommands();
+            commands.Context.AutodetectCommandAssemblies(); // Loads all assemblies in bin folder and checks for CommandAttribute
+            commands.Context.Configuration.DisplayExceptionDetails = false;
+            // commands.Context.Configuration.Notation = ParserNotation.Unix;
+            commands.RunConsole(args);
         }
     }
 }

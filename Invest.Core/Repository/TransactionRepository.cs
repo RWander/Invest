@@ -1,27 +1,34 @@
 ﻿using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
+using System.Linq;
 
-using Microsoft.Data.Sqlite;
+using Dapper;
 
+using Invest.Common.Data;
 using Invest.Core.Domain;
 
 namespace Invest.Core.Repository
 {
-    public interface ITransactionRepository
+    internal interface ITransactionRepository
     {
         IReadOnlyCollection<TransactionItem> GetOpenTransactions();
     }
 
-    public sealed class TransactionRepository: ITransactionRepository
+    internal sealed class TransactionRepository: RepositoryBase, ITransactionRepository
     {
-        private readonly string _connString = 
-            ConfigurationManager.ConnectionStrings["db"].ConnectionString;
+        public TransactionRepository(IConnectionFactory connFactory)
+            : base(connFactory)
+        { }
 
         public IReadOnlyCollection<TransactionItem> GetOpenTransactions()
         {
-            //using (var conn = new SQLiteConnection)
-            return null;
+            using (var conn = ConnectionFactory.Create())
+            {
+                var items = conn.Query<TransactionItem>(
+                    "SELECT Id FROM TRANSACTION WHERE IsCompleted = 0"
+                ).ToList();
+
+                return items;
+            }
         }
     }
 }

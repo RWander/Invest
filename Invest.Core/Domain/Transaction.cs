@@ -9,7 +9,7 @@ namespace Invest.Core.Domain
 
         public string What { get; set; }
 
-        public bool IsCompleted => Purchases.Sum(p => p.Amount) - Sales.Sum(s => s.Amount) == 0;
+        public bool IsCompleted { get; set; }
 
         public IList<TransactionItem> Purchases { get; }
 

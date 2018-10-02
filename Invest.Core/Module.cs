@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
+using Invest.Common.Data;
 using Invest.Common.Module;
+using Invest.Core.Data;
 using Invest.Core.Repository;
 
 namespace Invest.Core
@@ -9,6 +11,7 @@ namespace Invest.Core
     {
         protected override void RegisterImp(IServiceCollection serviceCollection)
         {
+            serviceCollection.AddSingleton<IConnectionFactory, ConnectionFactory>();
             serviceCollection.AddSingleton<ITransactionRepository, TransactionRepository>();
         }
     }
