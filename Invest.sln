@@ -28,11 +28,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{1626C3D6-3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Invest.Test.Core", "Test\Invest.Test.Core\Invest.Test.Core.csproj", "{D87E42F0-BCC4-48AF-8723-74A2B8CBC4A3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EF5B8D21-1E18-4120-B5EB-4E2628CFC2DE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "script", "script", "{722C3772-50EE-4593-9095-444E357123CC}"
 	ProjectSection(SolutionItems) = preProject
-		docker-build.sh = docker-build.sh
-		docker-run.sh = docker-run.sh
-		Dockerfile = Dockerfile
+		script\docker-compose.yml = script\docker-compose.yml
+		script\Dockerfile = script\Dockerfile
 	EndProjectSection
 EndProject
 Global
