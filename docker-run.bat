@@ -1,0 +1,1 @@
+docker run -it -v /c/tmp/:/db rwander/invest
