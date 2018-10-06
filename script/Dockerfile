@@ -16,6 +16,6 @@ RUN apt-get install -y \
 # ..
 
 RUN mkdir /db
-RUN /usr/bin/sqlite3 /db/test.db
+#RUN /usr/bin/sqlite3 /db/test.db
 
 CMD /bin/bash

@@ -1,6 +1,8 @@
-version: '3'
+version: '3.2'
 services:
   app:
     build: .
     volumes:
-    - ../Data:/db
+    - C:\\!work\\Invest\\data:/db
+    stdin_open: true
+    tty: true
