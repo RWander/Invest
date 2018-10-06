@@ -11,10 +11,6 @@ RUN apt-get install -y \
 	libsqlite3-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
-# TODO: clean
-# ..
-# ..
-
 RUN mkdir /db
 #RUN /usr/bin/sqlite3 /db/test.db
 
